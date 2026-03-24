@@ -2,6 +2,7 @@
   "name": "react-e-commerce",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://diana-hav.github.io/react-e-commerce",
   "type": "module",
   "scripts": {
     "dev": "vite",
