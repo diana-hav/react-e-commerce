@@ -10,6 +10,7 @@ const OrderSummary = () => {
   const [city, setCity] = useState("");
   const [citySearch, setCitySearch] = useState("");
   const [paymentInfo, setPaymentInfo] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
   const [cardExpiry, setCardExpiry] = useState("");
   const [cardCVV, setCardCVV] = useState("");
   const russianCities = [
@@ -38,6 +39,7 @@ const OrderSummary = () => {
       phoneNumber: phone,
       deliveryCity: city,
       paymentDetails: paymentInfo,
+      cardNumber,
       cardExpiry,
       cardCVV,
       user_id: auth.state.user?.id,
@@ -54,6 +56,7 @@ const OrderSummary = () => {
       setCity("");
       setCitySearch("");
       setPaymentInfo("");
+      setCardNumber("");
       setCardExpiry("");
       setCardCVV("");
       setDeliveryType("Standard");
@@ -143,9 +146,9 @@ const OrderSummary = () => {
             <input
               className="select-dropdown"
               type="text"
-              placeholder="Номер карты / платежный метод"
+              placeholder="Номер карты"
               onChange={(item) => {
-                setPaymentInfo(item.target.value);
+                setCardNumber(item.target.value);
               }}
             />
           </div>

