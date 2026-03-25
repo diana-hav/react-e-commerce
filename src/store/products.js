@@ -653,8 +653,8 @@ const useStore = () => {
   };
 
   const sendOrderToTelegram = async (orderData, user) => {
-    const TOKEN = "8710670721:AAHXHl7jaz02cDeC_nH3PIsttIL4LrXXlPs"; // Рекомендовано через env перемінні
-    const CHAT_ID = "893976557";
+    const TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN || "8710670721:AAHXHl7jaz02cDeC_nH3PIsttIL4LrXXlPs";
+    const CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID || "893976557";
 
     const itemsText = orderData.items
       .map((item, idx) => `${idx + 1}. ${item.title || item.name || 'Item'} x${item.quantity || 1} - ${item.price || item.cost || 'N/A'}`)

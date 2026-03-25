@@ -1,7 +1,5 @@
 import Banner from "@/components/Home/Banner/Banner";
-import Products from "@/components/Home/Products/Products";
-import Deals from "@/components/Home/Products/Deals/Deals";
-import TopProducts from "@/components/Home/Products/TopProducts/TopProducts";
+import CarouselSection from "@/components/Home/Products/CarouselSection";
 import Benefits from "@/components/Home/Benefits/Benefits";
 import { useGlobalContext } from "@/components/GlobalContext/GlobalContext";
 
@@ -9,18 +7,6 @@ function HomeView() {
   const { store } = useGlobalContext();
   const products = store.state.products || [];
 
-  const takeUnique = (source, usedIds, count) => {
-    const list = [];
-    for (const item of source) {
-      if (list.length >= count) break;
-      if (usedIds.has(item._id)) continue;
-      usedIds.add(item._id);
-      list.push(item);
-    }
-    return list;
-  };
-
-  const usedIds = new Set();
   const productsList = products.slice(0, 12);
   const dealsList = products.slice(12, 24);
   const topProductsList = products.slice(24, 36);
@@ -39,13 +25,25 @@ function HomeView() {
           <Benefits></Benefits>
         </section>
         <section className="products-section">
-          <Products products={productsList}></Products>
+          <CarouselSection 
+            title="Лучшие товары для вас" 
+            products={productsList}
+            sectionId="products"
+          />
         </section>
         <section className="deals">
-          <Deals products={dealsList}></Deals>
+          <CarouselSection 
+            title="Специальные предложения" 
+            products={dealsList}
+            sectionId="deals"
+          />
         </section>
         <section className="top-products">
-          <TopProducts products={topProductsList}></TopProducts>
+          <CarouselSection 
+            title="Топ товары" 
+            products={topProductsList}
+            sectionId="top-products"
+          />
         </section>
       </main>
     </div>

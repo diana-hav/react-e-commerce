@@ -1,7 +1,5 @@
 import "./FilterBy.css";
 
-import "./FilterBy.css";
-
 const FilterBy = () => {
   return (
     <div className="contains-select">

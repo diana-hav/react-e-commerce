@@ -1,3 +1,4 @@
+@import "./variables.css";
 @import "./base.css";
 
 .sub-container {
@@ -7,8 +8,8 @@
 
 .btn-rounded {
   border-radius: 50px;
-  background-color: #ffffff;
-  color: #fd8a15;
+  background-color: var(--color-white);
+  color: var(--primary-orange-light);
   border: none;
   padding: 1rem 2rem;
   font-weight: 900;
@@ -16,8 +17,8 @@
 }
 
 .btn-submit {
-  background-color: #fd8a15;
-  color: #ffffff;
+  background-color: var(--primary-orange-light);
+  color: var(--color-white);
   border: none;
   padding: 1rem 2rem;
   font-weight: 900;
@@ -25,7 +26,7 @@
 
 header,
 footer {
-  background-color: #ff8b15;
+  background-color: var(--primary-orange-light);
 }
 
 .hero-section {

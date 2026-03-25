@@ -1,4 +1,3 @@
-import React from "react";
 import { toast } from "react-toastify";
 import "./Modal.css";
 import { useGlobalContext } from "@/components/GlobalContext/GlobalContext";
