@@ -242,6 +242,7 @@ const useStore = () => {
         times_bought: 320,
         discount: 15,
         isNew: false,
+        reviewsCount: 87,
       },
       {
         _id: "2",
@@ -253,6 +254,7 @@ const useStore = () => {
         times_bought: 450,
         discount: 20,
         isNew: false,
+        reviewsCount: 64,
       },
       {
         _id: "3",
@@ -264,6 +266,7 @@ const useStore = () => {
         times_bought: 680,
         discount: 10,
         isNew: false,
+        reviewsCount: 92,
       },
       {
         _id: "4",
@@ -275,6 +278,7 @@ const useStore = () => {
         times_bought: 520,
         discount: 12,
         isNew: true,
+        reviewsCount: 78,
       },
       {
         _id: "5",
@@ -286,6 +290,7 @@ const useStore = () => {
         times_bought: 290,
         discount: 8,
         isNew: false,
+        reviewsCount: 53,
       },
       {
         _id: "6",
@@ -297,6 +302,7 @@ const useStore = () => {
         times_bought: 410,
         discount: 18,
         isNew: false,
+        reviewsCount: 71,
       },
       {
         _id: "7",
@@ -308,6 +314,7 @@ const useStore = () => {
         times_bought: 340,
         discount: 15,
         isNew: true,
+        reviewsCount: 89,
       },
       {
         _id: "8",
@@ -319,6 +326,7 @@ const useStore = () => {
         times_bought: 380,
         discount: 10,
         isNew: false,
+        reviewsCount: 45,
       },
       {
         _id: "9",
@@ -330,6 +338,7 @@ const useStore = () => {
         times_bought: 620,
         discount: 5,
         isNew: false,
+        reviewsCount: 112,
       },
       {
         _id: "10",
@@ -341,6 +350,7 @@ const useStore = () => {
         times_bought: 500,
         discount: 22,
         isNew: true,
+        reviewsCount: 67,
       },
       {
         _id: "11",
@@ -352,6 +362,7 @@ const useStore = () => {
         times_bought: 270,
         discount: 12,
         isNew: false,
+        reviewsCount: 58,
       },
       {
         _id: "12",
@@ -363,6 +374,7 @@ const useStore = () => {
         times_bought: 310,
         discount: 25,
         isNew: false,
+        reviewsCount: 74,
       },
       {
         _id: "13",
@@ -374,6 +386,7 @@ const useStore = () => {
         times_bought: 290,
         discount: 18,
         isNew: true,
+        reviewsCount: 96,
       },
       {
         _id: "14",
@@ -385,6 +398,7 @@ const useStore = () => {
         times_bought: 180,
         discount: 10,
         isNew: false,
+        reviewsCount: 41,
       },
       {
         _id: "15",
@@ -396,6 +410,7 @@ const useStore = () => {
         times_bought: 260,
         discount: 15,
         isNew: false,
+        reviewsCount: 39,
       },
       {
         _id: "16",
@@ -407,6 +422,7 @@ const useStore = () => {
         times_bought: 210,
         discount: 20,
         isNew: true,
+        reviewsCount: 83,
       },
       {
         _id: "17",
@@ -418,6 +434,7 @@ const useStore = () => {
         times_bought: 175,
         discount: 12,
         isNew: false,
+        reviewsCount: 52,
       },
       {
         _id: "18",
@@ -429,6 +446,7 @@ const useStore = () => {
         times_bought: 495,
         discount: 17,
         isNew: false,
+        reviewsCount: 128,
       },
       {
         _id: "19",
@@ -440,6 +458,7 @@ const useStore = () => {
         times_bought: 345,
         discount: 10,
         isNew: false,
+        reviewsCount: 69,
       },
       {
         _id: "20",
@@ -451,6 +470,7 @@ const useStore = () => {
         times_bought: 220,
         discount: 15,
         isNew: false,
+        reviewsCount: 34,
       },
       {
         _id: "21",
@@ -462,6 +482,7 @@ const useStore = () => {
         times_bought: 205,
         discount: 12,
         isNew: true,
+        reviewsCount: 47,
       },
       {
         _id: "22",
@@ -473,6 +494,7 @@ const useStore = () => {
         times_bought: 160,
         discount: 18,
         isNew: false,
+        reviewsCount: 61,
       },
       {
         _id: "23",
@@ -484,6 +506,7 @@ const useStore = () => {
         times_bought: 200,
         discount: 10,
         isNew: false,
+        reviewsCount: 55,
       },
       {
         _id: "24",
@@ -495,6 +518,7 @@ const useStore = () => {
         times_bought: 310,
         discount: 5,
         isNew: false,
+        reviewsCount: 28,
       },
       {
         _id: "25",
@@ -506,6 +530,7 @@ const useStore = () => {
         times_bought: 140,
         discount: 15,
         isNew: false,
+        reviewsCount: 76,
       },
       {
         _id: "26",
@@ -517,6 +542,7 @@ const useStore = () => {
         times_bought: 260,
         discount: 12,
         isNew: false,
+        reviewsCount: 43,
       },
       {
         _id: "27",
@@ -528,6 +554,7 @@ const useStore = () => {
         times_bought: 180,
         discount: 20,
         isNew: true,
+        reviewsCount: 59,
       },
       {
         _id: "28",
@@ -539,6 +566,7 @@ const useStore = () => {
         times_bought: 220,
         discount: 25,
         isNew: false,
+        reviewsCount: 84,
       },
       {
         _id: "29",
@@ -550,6 +578,7 @@ const useStore = () => {
         times_bought: 205,
         discount: 15,
         isNew: false,
+        reviewsCount: 72,
       },
       {
         _id: "30",
@@ -561,6 +590,7 @@ const useStore = () => {
         times_bought: 520,
         discount: 10,
         isNew: false,
+        reviewsCount: 91,
       },
       {
         _id: "31",
@@ -572,6 +602,7 @@ const useStore = () => {
         times_bought: 135,
         discount: 18,
         isNew: true,
+        reviewsCount: 103,
       },
       {
         _id: "32",
@@ -583,6 +614,7 @@ const useStore = () => {
         times_bought: 180,
         discount: 10,
         isNew: false,
+        reviewsCount: 66,
       },
       {
         _id: "33",
@@ -594,6 +626,7 @@ const useStore = () => {
         times_bought: 210,
         discount: 12,
         isNew: false,
+        reviewsCount: 37,
       },
       {
         _id: "34",
@@ -605,6 +638,7 @@ const useStore = () => {
         times_bought: 190,
         discount: 16,
         isNew: true,
+        reviewsCount: 49,
       },
       {
         _id: "35",
@@ -616,6 +650,7 @@ const useStore = () => {
         times_bought: 250,
         discount: 10,
         isNew: false,
+        reviewsCount: 32,
       },
       {
         _id: "36",
@@ -627,6 +662,7 @@ const useStore = () => {
         times_bought: 310,
         discount: 8,
         isNew: false,
+        reviewsCount: 25,
       },
     ];
 

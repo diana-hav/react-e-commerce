@@ -13,6 +13,10 @@ const OrderSummary = () => {
   const [cardNumber, setCardNumber] = useState("");
   const [cardExpiry, setCardExpiry] = useState("");
   const [cardCVV, setCardCVV] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [cardNumberError, setCardNumberError] = useState("");
+  const [cardExpiryError, setCardExpiryError] = useState("");
+  const [cardCVVError, setCardCVVError] = useState("");
   const russianCities = [
     "Москва", "Санкт-Петербург", "Новосибирск", "Екатеринбург", "Нижний Новгород",
     "Казань", "Челябинск", "Омск", "Самара", "Ростов-на-Дону", "Уфа", "Красноярск",
@@ -26,10 +30,60 @@ const OrderSummary = () => {
   const filteredCities = russianCities.filter((c) =>
     c.toLowerCase().includes(citySearch.toLowerCase())
   );
+  const validatePhone = (value) => {
+    const phoneRegex = /^(\+380|0)\d{9}$/;
+    if (!phoneRegex.test(value)) {
+      setPhoneError("Неверный формат номера телефона. Используйте +380XXXXXXXXX или 0XXXXXXXXX");
+    } else {
+      setPhoneError("");
+    }
+  };
+  const validateCardNumber = (value) => {
+    const cardRegex = /^\d{16}$/;
+    if (!cardRegex.test(value.replace(/\s/g, ""))) {
+      setCardNumberError("Номер карты должен содержать 16 цифр");
+    } else {
+      setCardNumberError("");
+    }
+  };
+  const validateCardExpiry = (value) => {
+    const expiryRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+    if (!expiryRegex.test(value)) {
+      setCardExpiryError("Неверный формат срока действия. Используйте MM/YY");
+      return;
+    }
+    const [month, year] = value.split("/");
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear() % 100;
+    const currentMonth = currentDate.getMonth() + 1;
+    const expYear = parseInt(year, 10);
+    const expMonth = parseInt(month, 10);
+    if (expYear < currentYear || (expYear === currentYear && expMonth < currentMonth)) {
+      setCardExpiryError("Срок действия карты истек");
+    } else {
+      setCardExpiryError("");
+    }
+  };
+  const validateCardCVV = (value) => {
+    const cvvRegex = /^\d{3}$/;
+    if (!cvvRegex.test(value)) {
+      setCardCVVError("CVV должен содержать 3 цифры");
+    } else {
+      setCardCVVError("");
+    }
+  };
   const setDelivery = (type) => {
     setDeliveryType(type);
   };
   const checkOut = async () => {
+    if (phoneError || cardNumberError || cardExpiryError || cardCVVError) {
+      toast.error("Будь ласка, виправте помилки у формі");
+      return;
+    }
+    if (!phone || !cardNumber || !cardExpiry || !cardCVV) {
+      toast.error("Будь ласка, заповніть всі поля");
+      return;
+    }
     let payload = {
       DeliveryType: deliveryType,
       DeliveryTypeCost: deliveryType == "Standard" ? 250 : 500,
@@ -52,6 +106,7 @@ const OrderSummary = () => {
     }
 
     if (response === true) {
+      toast.info("Ваш заказ обрабатывается");
       setPhone("");
       setCity("");
       setCitySearch("");
@@ -60,6 +115,10 @@ const OrderSummary = () => {
       setCardExpiry("");
       setCardCVV("");
       setDeliveryType("Standard");
+      setPhoneError("");
+      setCardNumberError("");
+      setCardExpiryError("");
+      setCardCVVError("");
     }
   };
   return (
@@ -103,11 +162,14 @@ const OrderSummary = () => {
             <h4>Номер телефона</h4>
             <input
               className="select-dropdown"
-              type="text"
+              type="tel"
+              value={phone}
               onChange={(item) => {
                 setPhone(item.target.value);
+                validatePhone(item.target.value);
               }}
             />
+            {phoneError && <small style={{ color: "#ff2100" }}>{phoneError}</small>}
             <small>
               <em style={{ color: "#ff2100" }}>
                 Ваш номер будет использован для подтверждения заказа
@@ -147,10 +209,13 @@ const OrderSummary = () => {
               className="select-dropdown"
               type="text"
               placeholder="Номер карты"
+              value={cardNumber}
               onChange={(item) => {
                 setCardNumber(item.target.value);
+                validateCardNumber(item.target.value);
               }}
             />
+            {cardNumberError && <small style={{ color: "#ff2100" }}>{cardNumberError}</small>}
           </div>
           <div className="promo-code">
             <h4>Срок действия карты</h4>
@@ -158,10 +223,13 @@ const OrderSummary = () => {
               className="select-dropdown"
               type="text"
               placeholder="MM/YY"
+              value={cardExpiry}
               onChange={(item) => {
                 setCardExpiry(item.target.value);
+                validateCardExpiry(item.target.value);
               }}
             />
+            {cardExpiryError && <small style={{ color: "#ff2100" }}>{cardExpiryError}</small>}
           </div>
           <div className="promo-code">
             <h4>CVV</h4>
@@ -170,10 +238,14 @@ const OrderSummary = () => {
               type="password"
               placeholder="CVV"
               maxLength={4}
+              value={cardCVV}
               onChange={(item) => {
                 setCardCVV(item.target.value);
+                validateCardCVV(item.target.value);
               }}
             />
+            {cardCVVError && <small style={{ color: "#ff2100" }}>{cardCVVError}</small>}
+            <br />
             <small>
               <em style={{ color: "#ff2100" }}>
                 Оплата будет списана только после телефонного подтверждения заказа
@@ -193,12 +265,7 @@ const OrderSummary = () => {
             <button
               className="flat-button checkout"
               onClick={() => {
-                if (phone.length > 0) {
-                  checkOut();
-                  toast.info("Ваш заказ обрабатывается");
-                  return;
-                }
-                toast.error("Пожалуйста, введите ваш номер телефона");
+                checkOut();
               }}
               disabled={store.state.cartQuantity > 0 ? false : true}
             >

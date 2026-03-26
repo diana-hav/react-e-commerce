@@ -39,7 +39,7 @@ const Product = ({ product }) => {
           <p className="product-description">{product?.description}</p>
           <div className="star-rating">
             <div className="star">{stars}</div>
-            <span className="reviews-count">({parseInt(Math.random() * 100)} отзывов)</span>
+            <span className="reviews-count">({product.reviewsCount} отзывов)</span>
           </div>
         </div>
         <div className="button-container">
