@@ -1,6 +1,7 @@
 import Banner from "@/components/Home/Banner/Banner";
 import CarouselSection from "@/components/Home/Products/CarouselSection";
 import Benefits from "@/components/Home/Benefits/Benefits";
+import TelegramBanner from "@/components/Home/TelegramBanner/TelegramBanner";
 import { useGlobalContext } from "@/components/GlobalContext/GlobalContext";
 
 function HomeView() {
@@ -23,6 +24,11 @@ function HomeView() {
         </section> */}
         <section>
           <Benefits></Benefits>
+        </section>
+        <section className="telegram-section">
+          <div className="sub-container">
+            <TelegramBanner />
+          </div>
         </section>
         <section className="products-section">
           <CarouselSection 
